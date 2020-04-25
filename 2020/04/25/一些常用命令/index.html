@@ -12,7 +12,7 @@
 
 
 
-<title>这是一篇测试文章 | Eve&#39;s planet</title>
+<title>最近jetson nano常用的一些命令 | Eve&#39;s planet</title>
 
 
 
@@ -210,7 +210,7 @@
     
     <article class="post-wrap">
         <header class="post-header">
-            <h1 class="post-title">这是一篇测试文章</h1>
+            <h1 class="post-title">最近jetson nano常用的一些命令</h1>
             
                 <div class="post-meta">
                     
@@ -219,14 +219,14 @@
 
                     
                         <span class="post-time">
-                        Date: <a href="#">四月 21, 2020&nbsp;&nbsp;18:30:33</a>
+                        Date: <a href="#">四月 25, 2020&nbsp;&nbsp;9:51:06</a>
                         </span>
                     
                     
                         <span class="post-category">
                     Category:
                             
-                                <a href="/categories/Study/">Study</a>
+                                <a href="/categories/tools/">tools</a>
                             
                         </span>
                     
@@ -235,25 +235,19 @@
         </header>
 
         <div class="post-content">
-            <h1 id="yijibiaoti"><a href="#yijibiaoti" class="headerlink" title="yijibiaoti"></a>yijibiaoti</h1><h2 id="erji"><a href="#erji" class="headerlink" title="erji"></a>erji</h2><p><strong>test</strong><br><em>test</em></p>
-<ul>
-<li>liebiao1</li>
-<li>liebiao2<ul>
-<li>ziliebiaoa</li>
-<li>ziliebiaob</li>
-</ul>
-</li>
-<li>liebiao3</li>
-</ul>
-<p><del>test</del></p>
-<p><a href="https://github.com/lcylmhlcy/Awesome-algorithm-interview/blob/master/README.md" target="_blank" rel="noopener">插入链接试一下</a></p>
-<p><img src="https://pic.downk.cc/item/5ea2e581c2a9a83be5bdabb0.jpg" alt="02"></p>
-<blockquote>
-<p>yinyong</p>
-</blockquote>
-<hr>
-<p><code>ceshidaima</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cap = <span class="literal">None</span></span><br><span class="line">camera = <span class="string">'rtsp://admin:ldsw1234@10.168.1.248:554/h264/ch1/main/av_stream'</span></span><br><span class="line">cap = cv2.VideoCapture(camera)</span><br><span class="line"></span><br><span class="line"><span class="comment">#import model</span></span><br><span class="line">ctx = mx.gpu()</span><br><span class="line">net=gluon.SymbolBlock.imports(symbol_file=<span class="string">'mobilenet0.25-symbol.json'</span>, input_names=[<span class="string">'data'</span>], param_file=<span class="string">'mobilenet0.25-0000.params'</span>, ctx=ctx)</span><br><span class="line"></span><br><span class="line"><span class="comment">#fps</span></span><br></pre></td></tr></table></figure>
+            <h1 id="jetson-nano"><a href="#jetson-nano" class="headerlink" title="jetson nano"></a>jetson nano</h1><p><code>执行mxnet之前</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line">export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/mxnet</span><br><span class="line">export MXNET_CUDNN_AUTOTUNE_DEFAULT=<span class="number">0</span></span><br><span class="line">python3 ***.py</span><br></pre></td></tr></table></figure>
+
+<p><code>nano暂时扩大8Gswap</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fallocate -l <span class="number">8</span>G swapfile</span><br><span class="line">chmod <span class="number">600</span> swapfile</span><br><span class="line">mkswap swapfile</span><br><span class="line">swapon swapfile</span><br></pre></td></tr></table></figure>
+
+<p><code>源（放这好找</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-i https://mirrors.aliyun.com/pypi/simple/</span><br></pre></td></tr></table></figure>
+
+<p><code>使用nginx时出现端口占用错误错误：</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">nginx: [emerg] bind() to <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">1935</span> failed (<span class="number">98</span>: Address already <span class="keyword">in</span> use)</span><br><span class="line">nginx: [emerg] bind() to <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">80</span> failed (<span class="number">98</span>: Address already <span class="keyword">in</span> use)</span><br><span class="line">nginx: [emerg] bind() to <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">1935</span> failed (<span class="number">98</span>: Address already <span class="keyword">in</span> use)</span><br><span class="line">nginx: [emerg] bind() to <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">80</span> failed (<span class="number">98</span>: Address already <span class="keyword">in</span> use)</span><br><span class="line">nginx: [emerg] bind() to <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">1935</span> failed (<span class="number">98</span>: Address already <span class="keyword">in</span> use)</span><br><span class="line">nginx: [emerg] bind() to <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">80</span> failed (<span class="number">98</span>: Address already <span class="keyword">in</span> use)</span><br><span class="line">nginx: [emerg] bind() to <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">1935</span> failed (<span class="number">98</span>: Address already <span class="keyword">in</span> use)</span><br><span class="line">nginx: [emerg] bind() to <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">80</span> failed (<span class="number">98</span>: Address already <span class="keyword">in</span> use)</span><br><span class="line">nginx: [emerg] bind() to <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">1935</span> failed (<span class="number">98</span>: Address already <span class="keyword">in</span> use)</span><br><span class="line">nginx: [emerg] bind() to <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">80</span> failed (<span class="number">98</span>: Address already <span class="keyword">in</span> use)</span><br><span class="line">nginx: [emerg] still could <span class="keyword">not</span> bind()</span><br></pre></td></tr></table></figure>
+<p><code>改正</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 通过命令： netstat -ntpl  可查看目前在使用的端口</span></span><br><span class="line">执行：（禁用<span class="number">80</span>端口）</span><br><span class="line">fuser -k <span class="number">80</span>/tcp</span><br><span class="line">然后再重启nginx服务</span><br></pre></td></tr></table></figure>
 
 
         </div>
@@ -269,7 +263,7 @@
                 
                     <p class="copyright-item">
                         <span>Permalink:</span>
-                        <span><a href="http://yoursite.com/2020/04/21/testblog/">http://yoursite.com/2020/04/21/testblog/</a></span>
+                        <span><a href="http://yoursite.com/2020/04/25/%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">http://yoursite.com/2020/04/25/%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</a></span>
                     </p>
                 
                 
@@ -306,8 +300,8 @@
         </section>
         <section class="post-nav">
             
-                <a class="prev" rel="prev" href="/2020/04/25/%E4%B8%80%E4%BA%9B%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">最近jetson nano常用的一些命令</a>
             
+            <a class="next" rel="next" href="/2020/04/21/testblog/">这是一篇测试文章</a>
             
         </section>
 
